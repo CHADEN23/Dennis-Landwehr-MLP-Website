@@ -1,25 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #fdfaf6;
-  --foreground: #10233f;
-  --navy: #0b2341;
-  --primary: #1261a6;
-  --primary-hover: #0d4f8b;
-  --secondary: #eaf4fc;
-  --surface: #f6f9fc;
-  --border: #d9e5ef;
-  --muted: #5c6f82;
-  --focus: #1888d4;
-  --warm: #e8973a;
-  --warm-hover: #c97e28;
-  --warm-light: #fef6ec;
-  --warm-dark: #9a5c18;
-  --warm-border: #f5d5a3;
-  --teal: #0e9e8e;
-  --teal-light: #e6f7f5;
+@theme {
+  /* Colors */
+  --color-background: #fdfaf6;
+  --color-foreground: #10233f;
+  --color-navy: #0b2341;
+  --color-primary: #1261a6;
+  --color-primary-hover: #0d4f8b;
+  --color-secondary: #eaf4fc;
+  --color-surface: #f6f9fc;
+  --color-border: #d9e5ef;
+  --color-muted: #5c6f82;
+  --color-focus: #1888d4;
+  --color-warm: #e8973a;
+  --color-warm-hover: #c97e28;
+  --color-warm-light: #fef6ec;
+  --color-warm-dark: #9a5c18;
+  --color-warm-border: #f5d5a3;
+  --color-teal: #0e9e8e;
+  --color-teal-light: #e6f7f5;
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Sizing */
+  --max-width-content: 1280px;
+
+  /* Border radius */
+  --radius-card: 0.75rem;
+
+  /* Shadows */
+  --shadow-card: 0 2px 16px 0 rgba(18, 97, 166, 0.06);
+  --shadow-card-hover: 0 8px 32px 0 rgba(18, 97, 166, 0.12);
 }
 
 @layer base {
@@ -35,26 +47,25 @@
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   :focus-visible {
-    outline: 2px solid var(--focus);
+    outline: 2px solid var(--color-focus);
     outline-offset: 3px;
     border-radius: 3px;
   }
 
-  /* Skip link */
   .skip-link {
     position: absolute;
     top: -100%;
     left: 0;
-    background: var(--navy);
+    background: var(--color-navy);
     color: #fff;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
@@ -84,7 +95,6 @@
   }
 }
 
-/* Reduzierte Animationen für barrierefreie Darstellung */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
