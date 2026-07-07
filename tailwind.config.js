@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
-    "/Users/charlotteleschke/Desktop/Claude/Dennis Landwehr MLP Website/src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "/Users/charlotteleschke/Desktop/Claude/Dennis Landwehr MLP Website/src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "/Users/charlotteleschke/Desktop/Claude/Dennis Landwehr MLP Website/src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
