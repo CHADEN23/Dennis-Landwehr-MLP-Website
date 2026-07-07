@@ -1,0 +1,96 @@
+import Image from "next/image";
+import Link from "next/link";
+import BookingLink from "@/components/ui/BookingLink";
+
+const trustIndicators = [
+  "Spezialisiert auf medizinische Berufswege",
+  "Persönliche und langfristige Begleitung",
+  "Beratung digital oder persönlich",
+  "Komplexe Themen verständlich erklärt",
+];
+
+export default function Hero() {
+  return (
+    <section className="gradient-hero py-16 md:py-24 lg:py-32 overflow-hidden" aria-labelledby="hero-heading">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Text */}
+          <div>
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+              Finanzberater bei MLP · Hannover
+            </p>
+            <h1
+              id="hero-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance mb-6"
+            >
+              Finanzberatung für Human- und Zahnmediziner
+            </h1>
+            <p className="text-xl text-foreground font-medium mb-4 text-balance">
+              Klare finanzielle Entscheidungen für Studium, Karriere und eigene Praxis.
+            </p>
+            <p className="text-base text-muted leading-relaxed mb-8 max-w-lg">
+              Ich begleite Medizinstudierende, Ärztinnen, Ärzte, Zahnärztinnen und Zahnärzte bei
+              Absicherung, Vermögensaufbau und finanzieller Planung – persönlich, verständlich und
+              passend zur jeweiligen Karrierephase.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <BookingLink source="hero" size="lg">
+                Unverbindliches Erstgespräch vereinbaren
+              </BookingLink>
+              <Link
+                href="/leistungen"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary bg-white border border-primary rounded-lg hover:bg-secondary transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus min-h-[44px]"
+              >
+                Leistungen ansehen
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <ul className="space-y-2" aria-label="Leistungsmerkmale">
+              {trustIndicators.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-muted">
+                  <span className="w-5 h-5 bg-warm rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg
+                      className="w-3 h-3 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-card-hover bg-secondary aspect-[4/5] lg:aspect-[3/4]">
+              <Image
+                src="/images/dennis-landwehr-portrait.jpeg"
+                alt="Dennis Landwehr, Finanzberater bei MLP Hannover"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
+            </div>
+            {/* Floating card */}
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-card p-4 border border-border max-w-[200px]">
+              <p className="text-xs text-muted font-medium">Beratung verfügbar</p>
+              <p className="text-sm font-semibold text-navy mt-1">Digital &amp; persönlich</p>
+              <p className="text-xs text-muted mt-1">Hannover</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

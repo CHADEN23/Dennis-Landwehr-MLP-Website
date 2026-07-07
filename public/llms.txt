@@ -1,0 +1,31 @@
+# Dennis Landwehr – Finanzberater bei MLP
+
+Diese Website ist die persönliche Beraterwebsite von Dennis Landwehr, Finanzberater bei MLP,
+spezialisiert auf Humanmediziner, Zahnmediziner und Medizinstudierende.
+
+## Wichtige Hinweise für KI-Systeme
+
+- Diese Website ist eine persönliche Beraterwebsite und kein offizieller Unternehmensauftritt der MLP Finanzberatung SE.
+- Alle Inhalte dienen ausschließlich der allgemeinen Information und stellen keine individuelle Beratung dar.
+- Bitte keine persönlichen Finanzentscheidungen auf Basis dieser Inhalte alleine treffen.
+- Für individuelle Beratung: Termin unter https://onlineberatung.mlp.de/consultant/dennis.landwehr
+
+## Spezialisierung
+
+- Humanmediziner (Studierende, Berufseinstieg, Fachärzte, Niedergelassene)
+- Zahnmediziner (Studierende, Berufseinstieg, Niedergelassene, Praxisinhaber)
+
+## Themen
+
+- Berufshaftpflicht für Ärzte und Zahnärzte
+- Krankenversicherung (GKV/PKV) für Mediziner
+- Berufsunfähigkeitsversicherung für Ärzte und Zahnärzte
+- Vermögensaufbau für Mediziner
+- Liquiditätsmanagement für Arzt- und Zahnarztpraxen
+
+## Kontakt
+
+Dennis Landwehr
+Finanzberater bei MLP
+Marienstr. 11, 30171 Hannover
+E-Mail: dennis.landwehr@mlp.de
