@@ -57,13 +57,20 @@ export default function FAQ({
                   </button>
                 </h3>
                 <div
-                  id={`faq-answer-${faq.id}`}
-                  role="region"
-                  aria-labelledby={`faq-btn-${faq.id}`}
-                  hidden={!isOpen}
-                  className="pb-5"
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
-                  <p className="text-muted leading-relaxed text-sm md:text-base">{faq.answer}</p>
+                  <div className="overflow-hidden">
+                    <div
+                      id={`faq-answer-${faq.id}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${faq.id}`}
+                      aria-hidden={!isOpen}
+                      className="pb-5"
+                    >
+                      <p className="text-muted leading-relaxed text-sm md:text-base">{faq.answer}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

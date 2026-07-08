@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildServiceMetadata } from "@/lib/metadata";
 import ServicePageLayout from "@/components/sections/ServicePageLayout";
+import FinanceCalculators from "@/components/sections/FinanceCalculators";
 
 export const metadata: Metadata = buildServiceMetadata(
   "Berufsunfähigkeit für Ärzte und Zahnärzte",
@@ -49,6 +50,7 @@ export default function BerufsunfaehigkeitPage() {
         },
         { label: "Nächster Schritt", value: "Persönliches Gespräch" },
       ]}
+      interactiveSection={<FinanceCalculators variant="bu" headingId="bu-rechner-heading" />}
       faqs={faqs}
       relatedLinks={[
         { label: "Krankenversicherung", href: "/leistungen/krankenversicherung-mediziner" },

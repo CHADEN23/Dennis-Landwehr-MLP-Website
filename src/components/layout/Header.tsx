@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
@@ -9,7 +10,22 @@ import BookingLink from "@/components/ui/BookingLink";
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  }
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -34,7 +50,12 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm" ref={navRef}>
+    <header
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : "shadow-none"
+      }`}
+      ref={navRef}
+    >
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo / Wortmarke */}
@@ -59,7 +80,9 @@ export default function Header() {
                       }
                       aria-expanded={openDropdown === item.href}
                       aria-haspopup="true"
-                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-lg hover:bg-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus"
+                      className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg hover:bg-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus ${
+                        isActive(item.href) ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                      }`}
                     >
                       {item.label}
                       <svg
@@ -104,7 +127,10 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-lg hover:bg-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus block"
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg hover:bg-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus block ${
+                      isActive(item.href) ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                    }`}
                   >
                     {item.label}
                   </Link>

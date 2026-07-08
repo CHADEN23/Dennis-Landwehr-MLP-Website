@@ -22,6 +22,8 @@ type ServicePageLayoutProps = {
   faqs?: FaqItem[];
   relatedLinks?: Array<{ label: string; href: string }>;
   updatedAt?: string;
+  /** Optionale full-width Sektion (z. B. interaktiver Rechner) zwischen Inhalt und FAQ */
+  interactiveSection?: ReactNode;
 };
 
 export default function ServicePageLayout({
@@ -34,6 +36,7 @@ export default function ServicePageLayout({
   faqs,
   relatedLinks,
   updatedAt,
+  interactiveSection,
 }: ServicePageLayoutProps) {
   return (
     <>
@@ -134,6 +137,8 @@ export default function ServicePageLayout({
           </aside>
         </div>
       </div>
+
+      {interactiveSection}
 
       {/* FAQ */}
       {faqs && faqs.length > 0 && <FAQ faqs={faqs} title="Häufige Fragen" />}

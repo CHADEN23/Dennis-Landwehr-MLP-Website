@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 
 type AudienceCard = {
   title: string;
@@ -68,20 +70,21 @@ export default function AudienceSelector() {
           className="mb-12"
         />
         <div className="grid md:grid-cols-3 gap-6">
-          {audiences.map((audience) => (
+          {audiences.map((audience, index) => (
+            <Reveal key={audience.href} delay={index * 120} className="flex">
             <Link
-              key={audience.href}
               href={audience.href}
-              className="group relative flex flex-col bg-white border border-border rounded-card overflow-hidden hover:border-primary hover:shadow-card-hover transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus"
+              className="group relative flex flex-col w-full bg-white border border-border rounded-card overflow-hidden hover:border-primary hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus"
               aria-label={`${audience.title}: ${audience.ctaText}`}
             >
               {/* Illustration header */}
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-secondary">
-                <img
+                <Image
                   src={audience.illustration}
                   alt={audience.illustrationAlt}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               {/* Card content */}
@@ -101,6 +104,7 @@ export default function AudienceSelector() {
                 </span>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </div>

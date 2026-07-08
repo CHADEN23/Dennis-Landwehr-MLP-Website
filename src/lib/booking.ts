@@ -11,7 +11,9 @@ export type BookingSource =
   | "service-page"
   | "studierende"
   | "ueber-mich"
-  | "faq";
+  | "faq"
+  | "bu-rechner"
+  | "vermoegens-rechner";
 
 export function getBookingUrl(source?: BookingSource): string {
   const baseUrl = siteConfig.bookingUrl;

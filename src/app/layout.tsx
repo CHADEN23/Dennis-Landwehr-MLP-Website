@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={inter.variable}>
+    <html lang="de" className={inter.variable} data-scroll-behavior="smooth">
       <body>
         <a href="#main-content" className="skip-link">
           Zum Hauptinhalt springen

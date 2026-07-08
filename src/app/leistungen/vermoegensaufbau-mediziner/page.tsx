@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildServiceMetadata } from "@/lib/metadata";
 import ServicePageLayout from "@/components/sections/ServicePageLayout";
+import FinanceCalculators from "@/components/sections/FinanceCalculators";
 
 export const metadata: Metadata = buildServiceMetadata(
   "Vermögensaufbau für Ärzte und Zahnärzte",
@@ -52,6 +53,9 @@ export default function VermoegensaufbauPage() {
         },
         { label: "Nächster Schritt", value: "Persönliches Gespräch" },
       ]}
+      interactiveSection={
+        <FinanceCalculators variant="vermoegen" headingId="vermoegen-rechner-heading" />
+      }
       faqs={faqs}
       relatedLinks={[
         {

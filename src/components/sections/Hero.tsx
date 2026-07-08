@@ -11,44 +11,83 @@ const trustIndicators = [
 
 export default function Hero() {
   return (
-    <section className="gradient-hero py-16 md:py-24 lg:py-32 overflow-hidden" aria-labelledby="hero-heading">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative gradient-hero py-16 md:py-24 lg:py-32 overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
+      {/* Dekorative, animierte Farbflächen */}
+      <div
+        className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-secondary/70 blur-3xl animate-blob pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-32 -left-24 w-80 h-80 rounded-full bg-warm-light blur-3xl animate-blob pointer-events-none"
+        style={{ animationDelay: "-9s" }}
+        aria-hidden="true"
+      />
+
+      {/* EKG-Linie als medizinischer Akzent */}
+      <svg
+        className="absolute bottom-6 left-0 w-full h-16 text-primary/15 pointer-events-none"
+        viewBox="0 0 900 60"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,30 L180,30 L200,30 L210,12 L222,48 L232,6 L244,52 L254,30 L280,30 L900,30"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+        />
+        <path
+          d="M0,30 L180,30 L200,30 L210,12 L222,48 L232,6 L244,52 L254,30 L280,30 L900,30"
+          fill="none"
+          stroke="var(--color-teal)"
+          strokeWidth={2}
+          className="animate-ecg"
+        />
+      </svg>
+
+      <div className="relative max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text */}
           <div>
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+            <p className="animate-fade-up text-primary font-semibold text-sm uppercase tracking-widest mb-4">
               Finanzberater bei MLP · Hannover
             </p>
             <h1
               id="hero-heading"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance mb-6"
+              className="animate-fade-up animate-delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance mb-6"
             >
               Finanzberatung für Human- und Zahnmediziner
             </h1>
-            <p className="text-xl text-foreground font-medium mb-4 text-balance">
+            <p className="animate-fade-up animate-delay-200 text-xl text-foreground font-medium mb-4 text-balance">
               Klare finanzielle Entscheidungen für Studium, Karriere und eigene Praxis.
             </p>
-            <p className="text-base text-muted leading-relaxed mb-8 max-w-lg">
+            <p className="animate-fade-up animate-delay-200 text-base text-muted leading-relaxed mb-8 max-w-lg">
               Ich begleite Medizinstudierende, Ärztinnen, Ärzte, Zahnärztinnen und Zahnärzte bei
               Absicherung, Vermögensaufbau und finanzieller Planung – persönlich, verständlich und
               passend zur jeweiligen Karrierephase.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <div className="animate-fade-up animate-delay-300 flex flex-col sm:flex-row gap-3 mb-10">
               <BookingLink source="hero" size="lg">
                 Unverbindliches Erstgespräch vereinbaren
               </BookingLink>
               <Link
-                href="/leistungen"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary bg-white border border-primary rounded-lg hover:bg-secondary transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus min-h-[44px]"
+                href="/#rechner"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-primary bg-white border border-primary rounded-lg hover:bg-secondary transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus min-h-[44px]"
               >
-                Leistungen ansehen
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                </svg>
+                Zu den Rechnern
               </Link>
             </div>
 
             {/* Trust Indicators */}
-            <ul className="space-y-2" aria-label="Leistungsmerkmale">
+            <ul className="animate-fade-up animate-delay-400 space-y-2" aria-label="Leistungsmerkmale">
               {trustIndicators.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-muted">
                   <span className="w-5 h-5 bg-warm rounded-full flex items-center justify-center flex-shrink-0">
@@ -70,7 +109,7 @@ export default function Hero() {
           </div>
 
           {/* Hero Image */}
-          <div className="relative">
+          <div className="relative animate-fade-up animate-delay-200">
             <div className="relative rounded-2xl overflow-hidden shadow-card-hover bg-secondary aspect-[4/5] lg:aspect-[3/4]">
               <Image
                 src="/images/dennis-landwehr-portrait.jpeg"
@@ -83,8 +122,11 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
             </div>
             {/* Floating card */}
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-card p-4 border border-border max-w-[200px]">
-              <p className="text-xs text-muted font-medium">Beratung verfügbar</p>
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-card p-4 border border-border max-w-[210px]">
+              <p className="flex items-center gap-2 text-xs text-muted font-medium">
+                <span className="w-2 h-2 rounded-full bg-teal animate-pulse-dot flex-shrink-0" aria-hidden="true" />
+                Beratung verfügbar
+              </p>
               <p className="text-sm font-semibold text-navy mt-1">Digital &amp; persönlich</p>
               <p className="text-xs text-muted mt-1">Hannover</p>
             </div>

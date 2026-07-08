@@ -16,7 +16,7 @@ export const siteConfig = {
   },
   bookingUrl: "https://onlineberatung.mlp.de/consultant/dennis.landwehr",
   mlpProfileUrl: "https://mlp-financify.de/hannover/team/profile/dennis-landwehr/",
-  siteUrl: "https://dennis-landwehr-finanzberater.de",
+  siteUrl: "https://dennis-landwehr.com",
   description:
     "Finanzberatung für Human- und Zahnmediziner in Hannover. Dennis Landwehr, Finanzberater bei MLP, begleitet Medizinstudierende, Ärztinnen und Ärzte sowie Zahnärzte bei Absicherung, Vermögensaufbau und finanzieller Planung.",
   ogImage: "/images/og-image.jpg",
