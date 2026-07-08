@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { buildFaqSchema } from "@/lib/schema";
 import { studyFaqs } from "@/content/faqs";
@@ -99,12 +100,13 @@ export default function StudierendePage() {
               </div>
             </div>
             {/* Foto: Medizinstudierende */}
-            <div className="rounded-2xl overflow-hidden shadow-card-hover aspect-[4/3]">
-              <img
+            <div className="relative rounded-2xl overflow-hidden shadow-card-hover aspect-[4/3]">
+              <Image
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
                 alt="Medizinstudierende lernen gemeinsam"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>
