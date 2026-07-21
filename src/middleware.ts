@@ -100,7 +100,7 @@ const maintenanceHtml = `<!doctype html>
 <body>
   <main class="card">
     <span class="badge"><span class="dot"></span> Wartung</span>
-    <h1>Wir sind gleich wieder für Sie da.</h1>
+    <h1>Bald wieder für Sie da.</h1>
     <p>Die Website wird gerade kurz aktualisiert und ist in Kürze wieder erreichbar.</p>
     <p>Vielen Dank für Ihre Geduld.</p>
     <div class="contact">
